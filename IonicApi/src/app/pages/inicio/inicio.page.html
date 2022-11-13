@@ -2,14 +2,15 @@
   <ion-toolbar>
     <ion-title>Inicio</ion-title>
   </ion-toolbar>
+
+  <ion-searchbar animated (ionChange)="buscar( $event )"></ion-searchbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let item of getdata">
+    <ion-item *ngFor="let item of getdata.data | filtro: textoBuscar: 'nombre'">
+        {{item.cod}}
         {{item.nombre}}
-        {{item.edad}}
-        {{item.curso}}
     </ion-item>
   </ion-list>
 </ion-content>

@@ -8,15 +8,21 @@ import { GetapiService } from 'src/app/Servicios/getapi.service';
 })
 export class InicioPage implements OnInit {
 getdata:any[]=[];
-  constructor(public _services:GetapiService) {
-    this._services.getdata<any[]>("").subscribe(data =>
-      {
-        this.getdata=data
-        console.log(this.getdata);
-      })
+textoBuscar = "";
+  constructor(public _services: GetapiService) {
+    
    }
 
   ngOnInit() {
+    this._services.getdata<any[]>("").subscribe(data =>
+      {
+        this.getdata=data;
+        console.log(this.getdata);
+      })
   }
 
+  buscar( event) {
+    //console.log(event);
+    this.textoBuscar = event.detail.value;
+  }
 }
