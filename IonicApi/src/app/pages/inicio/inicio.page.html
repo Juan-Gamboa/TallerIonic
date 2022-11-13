@@ -5,5 +5,11 @@
 </ion-header>
 
 <ion-content>
- 
+  <ion-list>
+    <ion-item *ngFor="let item of getdata">
+        {{item.nombre}}
+        {{item.edad}}
+        {{item.curso}}
+    </ion-item>
+  </ion-list>
 </ion-content>
