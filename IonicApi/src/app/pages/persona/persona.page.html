@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Inicio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar animated
+          (ionChange)="buscar( $event )"> 
+</ion-searchbar>
+  <ion-list>
+    <ion-item *ngFor="let item of getdata.data">
+      <ion-grid>
+      <ion-row>
+        <ion-col col-5 class="plan-left" style="border-right:2px solid #A6A6A6">
+          {{item.nombre}}
+        </ion-col>
+
+        <ion-col col-5 class="plan-right" style="border-right:2px solid #A6A6A6">
+          {{item.edad}}
+        </ion-col>
+        <ion-col col-5 class="plan-right" style="border-right:2px solid #A6A6A6">
+          {{item.curso}}
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    </ion-item>
+  </ion-list>
+</ion-content>
