@@ -21,11 +21,12 @@ export class PersonaPage implements OnInit {
     this.curso=this.activatedRoute.snapshot.paramMap.get("curso")
     console.log(this.curso);
 
-    this._services.getdata<any[]>("").subscribe(data =>
+    this._services.getdata<any[]>("").subscribe((response:any) =>
       {
-        this.getdata=data
-        //this.codigo=this.getdata[1].codigo
+        this.getdata=response.data;
+        this.codigo=this.getdata[0].curso;
         console.log(this.getdata);
+        console.log(this.codigo);
       })
 
   }
