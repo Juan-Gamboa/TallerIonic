@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GetapiService } from 'src/app/Servicios/getapi.service';
+import { GetapiPersonasService} from 'src/app/Servicios/getapi-personas.service';
 
 @Component({
   selector: 'app-persona',
@@ -8,7 +8,7 @@ import { GetapiService } from 'src/app/Servicios/getapi.service';
 })
 export class PersonaPage implements OnInit {
 getdata:any[]=[];
-  constructor(public _services:GetapiService) {
+  constructor(public _services:GetapiPersonasService) {
     this._services.getdata<any[]>("").subscribe(data =>
       {
         this.getdata=data
