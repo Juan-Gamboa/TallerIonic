@@ -2,15 +2,29 @@
   <ion-toolbar>
     <ion-title>Inicio</ion-title>
   </ion-toolbar>
-
   <ion-searchbar animated (ionChange)="buscar( $event )"></ion-searchbar>
+  <base href="/">
 </ion-header>
 
 <ion-content>
+
+
   <ion-list>
     <ion-item *ngFor="let item of getdata.data | filtro: textoBuscar: 'nombre'">
-        {{item.cod}}
-        {{item.nombre}}
+      <ion-grid>
+      <ion-row>
+        <ion-col col-5 class="plan-left" style="border-right:2px solid #A6A6A6">
+          {{item.cod}}
+        </ion-col>
+
+        <ion-col col-5 class="plan-right" style="border-right:2px solid #A6A6A6">
+          {{item.nombre}}
+        </ion-col>
+        <ion-col col-5 class="plan-right" style="border-right:2px solid #A6A6A6">
+          <ion-button [routerLink]="['/persona', item.nombre]">Ver personas</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
     </ion-item>
   </ion-list>
 </ion-content>

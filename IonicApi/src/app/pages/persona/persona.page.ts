@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { GetapiPersonasService} from 'src/app/Servicios/getapi-personas.service';
 
 @Component({
@@ -7,16 +8,26 @@ import { GetapiPersonasService} from 'src/app/Servicios/getapi-personas.service'
   styleUrls: ['./persona.page.scss'],
 })
 export class PersonaPage implements OnInit {
-getdata:any[]=[];
-  constructor(public _services:GetapiPersonasService) {
-    this._services.getdata<any[]>("").subscribe(data =>
-      {
-        this.getdata=data
-        console.log(this.getdata);
-      })
+  curso: any;
+  getdata:any[]=[];
+  codigo: number;
+  nombre: String;
+  edad:String;
+  constructor(public _services:GetapiPersonasService, private activatedRoute: ActivatedRoute) {
+    
    }
 
   ngOnInit() {
+    this.curso=this.activatedRoute.snapshot.paramMap.get("curso")
+    console.log(this.curso);
+
+    this._services.getdata<any[]>("").subscribe(data =>
+      {
+        this.getdata=data
+        //this.codigo=this.getdata[1].codigo
+        console.log(this.getdata);
+      })
+
   }
   buscar( event){
     console.log(event)
