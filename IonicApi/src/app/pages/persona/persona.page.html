@@ -1,13 +1,14 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Inicio</ion-title>
+    <ion-title class="ion-padding">Lista Estudiantes</ion-title>
   </ion-toolbar>
+  <ion-searchbar animated
+  (ionChange)="buscar( $event )"> 
+</ion-searchbar>
 </ion-header>
 
 <ion-content>
-  <ion-searchbar animated
-          (ionChange)="buscar( $event )"> 
-</ion-searchbar>
+ 
 
 <ion-list>
   <ion-item>
@@ -51,5 +52,6 @@
     </ion-grid>
     </ion-item>
   </ion-list>
-  <ion-button class="btnRegresar" [routerLink]="['/inicio']">Regresar</ion-button>
+  <ion-button color="#606163" class="btn-flotante" [routerLink]="['/inicio']"><i class="fa fa-angle-left" aria-hidden="true"></i></ion-button>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 </ion-content>
