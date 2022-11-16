@@ -8,22 +8,48 @@
   <ion-searchbar animated
           (ionChange)="buscar( $event )"> 
 </ion-searchbar>
+
+<ion-list>
+  <ion-item>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-5 class="plan-left" style="border-right:2px solid #A6A6A6">
+          Total
+        </ion-col>
+        <ion-col col-5 class="plan-right" style="border-right:2px solid #A6A6A6">
+          Mayores
+        </ion-col>
+        <ion-col>
+          Menores
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-5 class="plan-left" style="border-right:2px solid #A6A6A6">
+          {{contP}}
+        </ion-col>
+        <ion-col col-5 class="plan-right" style="border-right:2px solid #A6A6A6">
+          {{contMa}}
+        </ion-col>
+        <ion-col>
+          {{contMe}}
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+</ion-list>
   <ion-list>
-    <ion-item *ngFor="let item of getdata.data">
+    <ion-item *ngFor="let item of personaA | filtro: textoBuscar: 'nombre'">
       <ion-grid>
       <ion-row>
         <ion-col col-5 class="plan-left" style="border-right:2px solid #A6A6A6">
           {{item.nombre}}
         </ion-col>
-
         <ion-col col-5 class="plan-right" style="border-right:2px solid #A6A6A6">
           {{item.edad}}
-        </ion-col>
-        <ion-col col-5 class="plan-right" style="border-right:2px solid #A6A6A6">
-          {{item.curso}}
         </ion-col>
       </ion-row>
     </ion-grid>
     </ion-item>
   </ion-list>
+  <ion-button class="btnRegresar" [routerLink]="['/inicio']">Regresar</ion-button>
 </ion-content>
